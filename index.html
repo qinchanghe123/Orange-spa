@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta
     name="description"
-    content="Orange Spa in Flushing, NY — body work, foot reflexology, head therapy, facial care, and more in a calm, private setting."
+    content="Orange Spa in Flushing, NY — open 24 hours daily for body work, foot reflexology, head therapy, facial care, and more. Day and night prices are listed separately."
   />
   <meta name="theme-color" content="#102820" />
 
@@ -666,22 +666,64 @@
     }
 
     .price-row {
-      display: flex;
-      justify-content: space-between;
+      display: grid;
+      grid-template-columns: minmax(64px, 0.52fr) repeat(2, minmax(76px, 1fr));
       align-items: center;
-      gap: 16px;
+      gap: 10px;
       padding-top: 10px;
       border-top: 1px solid rgba(16, 40, 32, 0.08);
     }
 
-    .price-row span {
+    .price-row .price-duration,
+    .price-tier-label {
       color: var(--muted);
-      font-size: 0.9rem;
+      font-size: 0.78rem;
     }
 
     .price-row b {
-      font-size: 1.05rem;
+      font-size: 1rem;
       color: var(--ink);
+    }
+
+    .price-tier {
+      display: grid;
+      justify-items: end;
+      gap: 1px;
+    }
+
+    .price-tier-label {
+      text-align: right;
+      line-height: 1.25;
+    }
+
+    .price-guide {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 32px;
+    }
+
+    .price-guide-item {
+      padding: 16px 20px;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.68);
+    }
+
+    .price-guide-item strong,
+    .price-guide-item span {
+      display: block;
+    }
+
+    .price-guide-item strong {
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: 1.3rem;
+    }
+
+    .price-guide-item span {
+      margin-top: 3px;
+      color: var(--muted);
+      font-size: 0.82rem;
     }
 
     /* =========================
@@ -1170,6 +1212,26 @@
         padding: 22px;
       }
 
+      .price-guide {
+        grid-template-columns: 1fr;
+        gap: 10px;
+        margin-top: 24px;
+      }
+
+      .price-row {
+        grid-template-columns: minmax(54px, 0.48fr) repeat(2, minmax(78px, 1fr));
+        gap: 7px;
+      }
+
+      .price-row .price-duration,
+      .price-tier-label {
+        font-size: 0.68rem;
+      }
+
+      .price-row b {
+        font-size: 0.94rem;
+      }
+
       .gallery-grid {
         grid-template-columns: 1fr;
         grid-auto-rows: 240px;
@@ -1288,7 +1350,7 @@
         <div class="hero-copy reveal show">
 
           <span class="eyebrow">
-            橙子养生馆 · Orange Spa
+            桔子养生馆 · Orange Spa
           </span>
 
           <h1>
@@ -1343,8 +1405,8 @@
             </div>
 
             <div class="trust-item">
-              <strong>Simple</strong>
-              <span>Easy online booking</span>
+              <strong>24 Hours</strong>
+              <span>Open every day</span>
             </div>
 
           </div>
@@ -1533,7 +1595,7 @@
 
     <aside
       class="promo"
-      aria-label="Package offer"
+      aria-label="Membership card offer"
     >
 
       <div class="promo-inner reveal">
@@ -1541,12 +1603,16 @@
         <div>
 
           <strong>
-            Buy 10, Get 3 More
+            Member Card Bonus
           </strong>
 
           <span>
-            Body Massage &amp; Foot Therapy package offer shown
-            on the in-store menu. Ask staff for current package terms.
+            Recharge $300 and receive a $40 bonus, or recharge $500
+            and receive an $80 bonus. Top-ups are non-refundable.
+          </span>
+
+          <span lang="zh-CN">
+            会员卡充值优惠：充值 $300 赠送 $40，充值 $500 赠送 $80。充值金额不退款。
           </span>
 
         </div>
@@ -1555,7 +1621,7 @@
           href="tel:+19175991562"
           class="btn btn-dark"
         >
-          Ask About Package
+          Call About Membership
         </a>
 
       </div>
@@ -1591,10 +1657,22 @@
           </div>
 
           <p class="section-copy reveal">
-            Prices below are transcribed from the store menu you provided.
-            Only services shown on that menu are listed here.
+            Orange Spa is open every day, 24 hours. Day prices apply
+            from 10:00 AM to 10:00 PM; night prices apply from 10:00 PM
+            to 10:00 AM the following day. Times are New York local time.
           </p>
 
+        </div>
+
+        <div class="price-guide" aria-label="Day and night pricing schedule">
+          <div class="price-guide-item">
+            <strong>Daytime Promo Price</strong>
+            <span>10:00 AM–10:00 PM</span>
+          </div>
+          <div class="price-guide-item">
+            <strong>Nighttime Regular Price</strong>
+            <span>10:00 PM–10:00 AM next day</span>
+          </div>
         </div>
 
         <div class="service-grid">
@@ -1648,13 +1726,15 @@
               <div class="price-list">
 
                 <div class="price-row">
-                  <span>30 min</span>
-                  <b>$25</b>
+                  <span class="price-duration">30 min</span>
+                  <div class="price-tier"><span class="price-tier-label">Daytime Promo</span><b>$20</b></div>
+                  <div class="price-tier"><span class="price-tier-label">Nighttime Regular</span><b>$25</b></div>
                 </div>
 
                 <div class="price-row">
-                  <span>60 min</span>
-                  <b>$40</b>
+                  <span class="price-duration">60 min</span>
+                  <div class="price-tier"><span class="price-tier-label">Daytime Promo</span><b>$29.90</b></div>
+                  <div class="price-tier"><span class="price-tier-label">Nighttime Regular</span><b>$39.90</b></div>
                 </div>
 
               </div>
@@ -1711,13 +1791,15 @@
               <div class="price-list">
 
                 <div class="price-row">
-                  <span>30 min</span>
-                  <b>$15</b>
+                  <span class="price-duration">30 min</span>
+                  <div class="price-tier"><span class="price-tier-label">Daytime Promo</span><b>$8</b></div>
+                  <div class="price-tier"><span class="price-tier-label">Nighttime Regular</span><b>$15</b></div>
                 </div>
 
                 <div class="price-row">
-                  <span>60 min</span>
-                  <b>$20</b>
+                  <span class="price-duration">60 min</span>
+                  <div class="price-tier"><span class="price-tier-label">Daytime Promo</span><b>$9.90</b></div>
+                  <div class="price-tier"><span class="price-tier-label">Nighttime Regular</span><b>$35</b></div>
                 </div>
 
               </div>
@@ -1760,8 +1842,9 @@
               <div class="price-list">
 
                 <div class="price-row">
-                  <span>15 min</span>
-                  <b>$20</b>
+                  <span class="price-duration">15 min</span>
+                  <div class="price-tier"><span class="price-tier-label">Daytime Promo</span><b>$19.90</b></div>
+                  <div class="price-tier"><span class="price-tier-label">Nighttime Regular</span><b>$29.90</b></div>
                 </div>
 
               </div>
@@ -1803,8 +1886,9 @@
               <div class="price-list">
 
                 <div class="price-row">
-                  <span>15 min</span>
-                  <b>$20</b>
+                  <span class="price-duration">15 min</span>
+                  <div class="price-tier"><span class="price-tier-label">Daytime Promo</span><b>$19.90</b></div>
+                  <div class="price-tier"><span class="price-tier-label">Nighttime Regular</span><b>$29.90</b></div>
                 </div>
 
               </div>
@@ -1847,8 +1931,9 @@
               <div class="price-list">
 
                 <div class="price-row">
-                  <span>15 min</span>
-                  <b>$20</b>
+                  <span class="price-duration">15 min</span>
+                  <div class="price-tier"><span class="price-tier-label">Daytime Promo</span><b>$19.90</b></div>
+                  <div class="price-tier"><span class="price-tier-label">Nighttime Regular</span><b>$29.90</b></div>
                 </div>
 
               </div>
@@ -1891,8 +1976,9 @@
               <div class="price-list">
 
                 <div class="price-row">
-                  <span>30 min</span>
-                  <b>$30</b>
+                  <span class="price-duration">30 min</span>
+                  <div class="price-tier"><span class="price-tier-label">Daytime Promo</span><b>$29.90</b></div>
+                  <div class="price-tier"><span class="price-tier-label">Nighttime Regular</span><b>$39.90</b></div>
                 </div>
 
               </div>
@@ -1935,8 +2021,9 @@
               <div class="price-list">
 
                 <div class="price-row">
-                  <span>30 min</span>
-                  <b>$30</b>
+                  <span class="price-duration">30 min</span>
+                  <div class="price-tier"><span class="price-tier-label">Daytime Promo</span><b>$30</b></div>
+                  <div class="price-tier"><span class="price-tier-label">Nighttime Regular</span><b>$30</b></div>
                 </div>
 
               </div>
@@ -1979,8 +2066,9 @@
               <div class="price-list">
 
                 <div class="price-row">
-                  <span>60 min</span>
-                  <b>$50</b>
+                  <span class="price-duration">60 min</span>
+                  <div class="price-tier"><span class="price-tier-label">Daytime Promo</span><b>$39.90</b></div>
+                  <div class="price-tier"><span class="price-tier-label">Nighttime Regular</span><b>$69.90</b></div>
                 </div>
 
               </div>
@@ -2037,8 +2125,9 @@
               <div class="price-list">
 
                 <div class="price-row">
-                  <span>60 min</span>
-                  <b>$50</b>
+                  <span class="price-duration">60 min</span>
+                  <div class="price-tier"><span class="price-tier-label">Daytime Promo</span><b>$39.90</b></div>
+                  <div class="price-tier"><span class="price-tier-label">Nighttime Regular</span><b>$69.90</b></div>
                 </div>
 
               </div>
@@ -2074,14 +2163,15 @@
 
               <p>
                 A focused foot-care service listed on the in-store menu.
-                Session duration is not shown on the provided price sheet.
+                This professional pedicure session lasts 30 minutes.
               </p>
 
               <div class="price-list">
 
                 <div class="price-row">
-                  <span>Duration: ask staff</span>
-                  <b>$20</b>
+                  <span class="price-duration">30 min</span>
+                  <div class="price-tier"><span class="price-tier-label">Daytime Promo</span><b>$20</b></div>
+                  <div class="price-tier"><span class="price-tier-label">Nighttime Regular</span><b>$20</b></div>
                 </div>
 
               </div>
@@ -2444,7 +2534,7 @@
             <div class="contact-chip">
               <span>Hours</span>
               <b>
-                Call to confirm current hours
+                Open 24 hours, every day
               </b>
             </div>
 
@@ -2675,7 +2765,7 @@
             <div class="contact-detail">
               <span>Chinese Name</span>
               <b>
-                橙子养生馆 / 桔子推拿中心
+                桔子养生馆 / 桔子推拿中心
               </b>
             </div>
 
@@ -2700,7 +2790,7 @@
             <div class="contact-detail">
               <span>Hours</span>
               <b>
-                Call to confirm current hours
+                Open 24 hours, every day
               </b>
             </div>
 
